@@ -2,7 +2,7 @@ import json
 
 
 def load_json():
-    f = open('data.json')
+    f = open('data.json','r')
     d = json.load(f)
     f.close()
     return d
@@ -57,18 +57,8 @@ def remove_user(id:int):
 
 def patch_user(id:int,insert_data:dict):
     l=load_json()
-    try:
-        print("id jest równe",id)
-        a=[e for e in l if e["id"] == id][0]
-        print(a)
-    except:
-        a=None
-        print('expect')
-    if a:
-        l[l.index(a)].update(insert_data)
-        print('if')
-    else:
-        print('lama')
+    a=[e for e in l if e["id"] == id][0]
+    l[l.index(a)].update(insert_data)
     with open("data.json", 'w') as json_file:
         json.dump(l, json_file, 
         indent=4,  

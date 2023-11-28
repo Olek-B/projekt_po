@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/users", methods=['GET'])
 def get_users():
-    return jsonify(get_data())
+    return get_data()
 
 @app.route("/users",methods=['POST'])
 def add_users():
@@ -20,7 +20,7 @@ def get_user_by_id(user_id):
 
 @app.route("/users/<int:user_id>",methods=['PATCH'])
 def patch_user_by_id(user_id):
-    if check_data():
+    if check_data(request.json):
         patch_user(user_id,request.json)
         return '', 204
     else:
