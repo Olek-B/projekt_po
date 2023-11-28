@@ -74,3 +74,10 @@ def patch_user(id:int,insert_data:dict):
         indent=4,  
         separators=(',',': '))
         json_file.close()
+
+
+def check_data(data:dict):
+    if data["name"] or data["lastname"]:
+        return True
+    else:
+        return False
