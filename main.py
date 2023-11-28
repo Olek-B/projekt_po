@@ -14,7 +14,7 @@ def add_users():
     insert_user(request.json)
     return "Success", 201
 
-@app.route("/users/<int:user_id>")
+@app.route("/users/<int:user_id>",methods=['GET'])
 def get_user_by_id(user_id):
     return get_data(user_id)
 
@@ -28,3 +28,14 @@ def patch_user_by_id(user_id):
 def remove_user_by_id(user_id):
     remove_user(user_id)
     return "Success", 204
+
+@app.route("/users/<int:user_id>",methods=['PUT'])
+def update_user_by_id(user_id):
+    a=get_data()
+    if any(obj['id'] == user_id for obj in a):
+        patch_user(user_id,request.json)
+        print("if")
+    else:
+        insert_user(request.json,user_id)
+        print("else")
+    return 'pomidor'

@@ -1,8 +1,8 @@
 [
     {
         "id": 2,
-        "lastname": "azkowski",
-        "name": "Lama"
+        "lastname": "DOE",
+        "name": "John"
     },
     {
         "id": 4,
@@ -18,5 +18,10 @@
         "name": "Wojciech",
         "lastname": "azkowski",
         "id": 5
+    },
+    {
+        "name": "John",
+        "lastname": "DOE",
+        "id": 20
     }
 ]
