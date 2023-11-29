@@ -67,7 +67,8 @@ def patch_user(id:int,insert_data:dict):
 
 
 def check_data(data:dict):
-    if data["name"] or data["lastname"]:
-        return True
-    else:
+    try:
+        if data["name"] or data["lastname"]:
+            return True
+    except:
         return False
